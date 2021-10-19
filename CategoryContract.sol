@@ -8,6 +8,11 @@ contract CategoryContract {
         address createdBy;
         string name;
         string description;
+        string totallySustainable;
+        string partiallySustainable;
+        string neutro;
+        string partiallyNotSustainable;
+        string totallyNotSustainable;
         int16 votesCount;
     }
     Category category;
@@ -18,8 +23,8 @@ contract CategoryContract {
         return categories;
     }
     
-    function addCategory(string memory name, string memory description) public returns(bool) {
-        category = Category(msg.sender, name, description, 0);
+    function addCategory(string memory name, string memory description, string memory totallySustainable, string memory partiallySustainable, string memory neutro, string memory partiallyNotSustainable, string memory totallyNotSustainable) public returns(bool) {
+        category = Category(msg.sender, name, description, totallySustainable, partiallySustainable, neutro, partiallyNotSustainable, totallyNotSustainable, 0);
         
         categories.push(category);
         categoryCounts++;
